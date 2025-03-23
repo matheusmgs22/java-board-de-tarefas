@@ -6,8 +6,8 @@ import lombok.Data;
 public class CardEntity {
 
     private Long id;
-    private String title;
-    private String description;
+    private String title; // Título do card
+    private String description; // Descricao detalhada da tarefa
     private BoardColumnEntity boardColumn = new BoardColumnEntity();
 
 }

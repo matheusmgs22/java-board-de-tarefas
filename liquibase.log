@@ -1,0 +1,38 @@
+mar. 23, 2025 7:32:41 PM liquibase.command
+INFO: Logging exception.
+ERROR: Exception Details
+ERROR: Exception Primary Class:  SetupException
+ERROR: Exception Primary Reason:  No path attribute for includeAll
+ERROR: Exception Primary Source:  4.29.1
+mar. 23, 2025 7:32:41 PM liquibase.command
+INFO: Command execution complete
+liquibase.exception.CommandExecutionException: liquibase.exception.ChangeLogParseException: Error parsing /db/changelog/db.changelog-master.yml : No path attribute for includeAll
+	at liquibase.command.CommandScope.execute(CommandScope.java:258)
+	at liquibase.Liquibase.lambda$update$0(Liquibase.java:216)
+	at liquibase.Scope.lambda$child$0(Scope.java:191)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:190)
+	at liquibase.Scope.child(Scope.java:169)
+	at liquibase.Liquibase.runInScope(Liquibase.java:1290)
+	at liquibase.Liquibase.update(Liquibase.java:205)
+	at liquibase.Liquibase.update(Liquibase.java:188)
+	at liquibase.Liquibase.update(Liquibase.java:175)
+	at liquibase.Liquibase.update(Liquibase.java:155)
+	at br.com.dio.persistence.migration.MigrationStrategy.executeMigration(MigrationStrategy.java:35)
+	at br.com.dio.Main.main(Main.java:13)
+Caused by: liquibase.exception.ChangeLogParseException: Error parsing /db/changelog/db.changelog-master.yml : No path attribute for includeAll
+	at liquibase.parser.core.yaml.YamlChangeLogParser.parse(YamlChangeLogParser.java:98)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.lambda$getDatabaseChangeLog$0(DatabaseChangelogCommandStep.java:129)
+	at liquibase.Scope.child(Scope.java:200)
+	at liquibase.Scope.child(Scope.java:176)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.getDatabaseChangeLog(DatabaseChangelogCommandStep.java:128)
+	at liquibase.command.core.helpers.DatabaseChangelogCommandStep.run(DatabaseChangelogCommandStep.java:87)
+	at liquibase.command.CommandScope.execute(CommandScope.java:220)
+	... 12 more
+Caused by: liquibase.exception.SetupException: No path attribute for includeAll
+	at liquibase.changelog.DatabaseChangeLog.includeAll(DatabaseChangeLog.java:789)
+	at liquibase.changelog.DatabaseChangeLog.handleChildNodeHelper(DatabaseChangeLog.java:540)
+	at liquibase.changelog.DatabaseChangeLog.handleChildNode(DatabaseChangeLog.java:461)
+	at liquibase.changelog.DatabaseChangeLog.load(DatabaseChangeLog.java:428)
+	at liquibase.parser.core.yaml.YamlChangeLogParser.parse(YamlChangeLogParser.java:92)
+	... 18 more

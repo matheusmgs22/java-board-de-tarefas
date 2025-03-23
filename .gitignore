@@ -3,6 +3,3 @@
 
 # Ignore Gradle build output directory
 build
-
-
-app/bin/main/db/changelog/migrations/db.changelog-202408191938.sql
